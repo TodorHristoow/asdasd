@@ -1,0 +1,14 @@
+message = input().split(" ")
+result = []
+for word in message:
+    ascii_letters = [(s) for s in word if s.isdigit()]
+    word_letters = [(s) for s in word if not s.isdigit()]
+    if len(word_letters) > 1:
+        last_symbol = word_letters.pop(-1)
+        first_symbol = word_letters.pop(0)
+        word_letters.insert(0, last_symbol)
+        word_letters.append(first_symbol)
+    letter = str(chr(int(''.join(ascii_letters))))
+    word_letters.insert(0, letter)
+    result.append((''.join(word_letters)))
+print(' '.join(result))
